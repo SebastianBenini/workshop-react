@@ -1,7 +1,10 @@
 
 import {Box, Flex, Text, Spacer, Tag, Button, Icon } from "@chakra-ui/react";
 import { HiCalendar } from "react-icons/hi"
+import { Link } from "react-router-dom";
 
+// realizamos un componente donde nos devuelve los datos del los lanzamientos de space x
+// estilizado con ayuda de chakra ui y react icons
 export function LaunchItem(launch) {
     return(
         <Box
@@ -25,9 +28,11 @@ export function LaunchItem(launch) {
                 {launch.launch_date_local.split("T")[0]}
               </Text>
             </Flex>
+          <Link to={`/launch/${launch.flight_number}`}>  
             <Button mt={2} colorScheme="purple">
                 More Details
             </Button>
+          </Link>
           </Box>
     )
 }
